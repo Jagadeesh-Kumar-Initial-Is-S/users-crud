@@ -1,101 +1,86 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/sb-admin-2.min.css";
+import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
-import { Switch, Route, Link, Redirect, NavLink } from "react-router-dom";
-import Layout from "./layout/Layout";
+import { Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Buttons from "./pages/Buttons";
-import Cards from "./pages/Cards";
-import Colors from "./pages/Colors";
-import Borders from "./pages/Borders";
-import Animations from "./pages/Animations";
-import Others from "./pages/Others";
-import LoginPg from "./pages/LoginPg";
-import ForgotPassPg from "./pages/ForgotPassPg";
-import RegisterPg from "./pages/RegisterPg";
-import NotFound from "./pages/NotFound";
-import BlankPage from "./pages/BlankPage";
-import Charts from "./pages/Charts";
-import Tables from "./pages/Tables";
+import AddUser from "./pages/AddUser";
+import EditUser from "./pages/EditUser";
+import Profile from "./pages/Profile";
+import EditProfile from "./pages/EditProfile";
+import { useState } from "react";
+import NavBar from "./components/NavBar";
+
+const users = [
+  {
+    name: "Mr. Estelle Reichel",
+    email: "Marques71@yahoo.com",
+    pic: "http://placeimg.com/480/480/people",
+    id: "1",
+  },
+  {
+    name: "Tracy Sanford",
+    email: "Kiarra60@gmail.com",
+    pic: "http://placeimg.com/480/480/people",
+    id: "2",
+  },
+  {
+    name: "Jimmie Rutherford",
+    email: "Creola55@hotmail.com",
+    pic: "http://placeimg.com/480/480/people",
+    id: "3",
+  },
+  {
+    name: "Alonzo Ferry",
+    email: "Myrtle_Goldner@hotmail.com",
+    pic: "http://placeimg.com/480/480/people",
+    id: "4",
+  },
+  {
+    name: "Shelia Lynch V",
+    email: "Lauren.Bode9@hotmail.com",
+    pic: "http://placeimg.com/480/480/people",
+    id: "5",
+  },
+];
 
 function App() {
+  const [userList, setUserList] = useState(users);
   return (
     <><div class="URL">
       <a href='https://github.com/Jagadeesh-Kumar-Initial-Is-S' target='_blank'>Submitted and coded by Jagadeesh Kumar . S, you may send mail to my email address which is jagadeesh_2k17@proton.me, you may contribute some money to my Indian Unified Payment Interface (UPI) which is jagadeesh-kumar@ybl .</a>
-
+      <br/><br/>
       <div className="App">
-        <Switch>
-          <Route path="/" exact>
-            <Layout>
-              <Home />
-            </Layout>
-          </Route>
-          <Route path="/buttons">
-            <Layout>
-              <Buttons />
-            </Layout>
-          </Route>
-          <Route path="/cards">
-            <Layout>
-              <Cards />
-            </Layout>
-          </Route>
-          <Route path="/colors">
-            <Layout>
-              <Colors />
-            </Layout>
-          </Route>
-          <Route path="/borders">
-            <Layout>
-              <Borders />
-            </Layout>
-          </Route>
-          <Route path="/animations">
-            <Layout>
-              <Animations />
-            </Layout>
-          </Route>
-          <Route path="/others">
-            <Layout>
-              <Others />
-            </Layout>
-          </Route>
-          <Route path="/login">
-            <LoginPg />
-          </Route>
-          <Route path="/register">
-            <RegisterPg />
-          </Route>
-          <Route path="/forgot-password">
-            <ForgotPassPg />
-          </Route>
-          <Route path="/not-found">
-            <Layout>
-              <NotFound />
-            </Layout>
-          </Route>
-          <Route path="/blank-page">
-            <Layout>
-              <BlankPage />
-            </Layout>
-          </Route>
-          <Route path="/charts">
-            <Layout>
-              <Charts />
-            </Layout>
-          </Route>
-          <Route path="/tables">
-            <Layout>
-              <Tables />
-            </Layout>
-          </Route>
-        </Switch>
+        <NavBar />
+        <div className="container">
+          <Switch>
+            <Route path="/" exact>
+              <Home
+                users={userList}
+                userList={userList}
+                setUserList={setUserList} />
+            </Route>
+            <Route path="/adduser">
+              <AddUser userList={userList} setUserList={setUserList} />
+            </Route>
+            <Route path="/edit/:id">
+              <EditUser userList={userList} setUserList={setUserList} />
+            </Route>
+            <Route path="/profile/:id">
+              <Profile userList={userList} />
+            </Route>
+            <Route path="/editprofile/:id">
+              <EditProfile userList={userList} setUserList={setUserList} />
+            </Route>
+            <Route path="**" exact>
+              <h2>404</h2>
+            </Route>
+          </Switch>
+        </div>
       </div>
     </div>
-    <div>
-          <a href = 'https://github.com/Jagadeesh-Kumar-Initial-Is-S' target = '_blank' >Submitted and coded by Jagadeesh Kumar . S, you may send mail to my email address which is jagadeesh_2k17@proton.me, you may contribute some money to my Indian Unified Payment Interface (UPI) which is jagadeesh-kumar@ybl .</a>
-   </div>
-    </>
+    <br/>
+    <div class="URL">
+        <a href='https://github.com/Jagadeesh-Kumar-Initial-Is-S' target='_blank'>Submitted and coded by Jagadeesh Kumar . S, you may send mail to my email address which is jagadeesh_2k17@proton.me, you may contribute some money to my Indian Unified Payment Interface (UPI) which is jagadeesh-kumar@ybl .</a>
+      </div></>
   );
 }
 
