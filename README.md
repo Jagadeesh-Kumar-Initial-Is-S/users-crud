@@ -2,7 +2,7 @@ Submitted and coded by Jagadeesh Kumar . S, you may send mail to my email addres
 
 https://github.com/Jagadeesh-Kumar-Initial-Is-S/users-crud
 
-https://imaginative-daffodil-4ea365.netlify.app/
+https://storied-monstera-9467bc.netlify.app
 
 # Task
 
