@@ -38,7 +38,7 @@ function EditProfile({ userList, setUserList }) {
             className="form-control"
             id="userName"
             name="userName"
-            placeholder="Name of the user"
+            placeholder="Enter the name of the user"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
           />
@@ -49,7 +49,7 @@ function EditProfile({ userList, setUserList }) {
             className="form-control"
             id="userEmail"
             name="userEmail"
-            placeholder="Email address of the user"
+            placeholder="Enter the email address of the user"
             value={userEmail}
             onChange={(e) => setUserEmail(e.target.value)}
           />
@@ -60,7 +60,7 @@ function EditProfile({ userList, setUserList }) {
             className="form-control"
             id="userPic"
             name="userPic"
-            placeholder="URL ( Uniform Resource Locator ) for the photo of the user"
+            placeholder="Enter the URL ( Uniform Resource Locator ) for the photo of the user"
             value={userPic}
             onChange={(e) => setUserPic(e.target.value)}
           />
